@@ -36,6 +36,19 @@ public class IfItWorks extends BaseTest {
     private PlatformTransactionManager platformTransactionManager;
 
     @Test
+    public void testJpqlToWork(){
+        Post post = postService.create();
+        Assumptions.assumeTrue(null != post.getId());
+        PostComment postComment = postCommentService.create(post);
+        Assumptions.assumeTrue(null != postComment);
+        PostCommentDetails postCommentDetails = postCommentDetailsService.create(postComment);
+        Assumptions.assumeTrue(null != postCommentDetails.getId());
+        List<PostCommentDetails> list = postCommentDetailsService.list();
+        Assumptions.assumeTrue(1 == list.size());
+        Assumptions.assumeTrue(postCommentDetails.getId() == list.get(0).getId());
+    }
+
+    @Test
     public void testList() {
         Post post = postService.create();
         Assumptions.assumeTrue(null != post.getId());

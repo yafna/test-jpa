@@ -1,0 +1,1 @@
+Project to check hibernate behaviour described here : https://vladmihalcea.com/jpa-association-fetching-validator/

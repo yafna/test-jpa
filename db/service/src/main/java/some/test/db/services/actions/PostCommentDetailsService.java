@@ -2,7 +2,6 @@ package some.test.db.services.actions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import some.test.db.metamodels.Post;
 import some.test.db.metamodels.PostComment;
 import some.test.db.metamodels.PostCommentDetails;
 
@@ -30,6 +29,17 @@ public class PostCommentDetailsService {
         p.setVotes(3);
         em.persist(p);
         return p;
+    }
+
+    public List<PostCommentDetails> jpqlToTest() {
+        List<PostCommentDetails> commentDetailsList = em.createQuery("""
+                                select pcd
+                                from PostCommentDetails pcd
+                                order by pcd.id
+                                """,
+                        PostCommentDetails.class)
+                .getResultList();
+        return commentDetailsList;
     }
 
     public List<PostCommentDetails> list() {
