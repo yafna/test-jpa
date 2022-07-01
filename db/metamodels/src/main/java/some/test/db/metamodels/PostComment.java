@@ -1,15 +1,14 @@
 package some.test.db.metamodels;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity(name = "PostComment")
 @Table(name = "post_comment")
 public class PostComment {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @ManyToOne

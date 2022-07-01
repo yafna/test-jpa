@@ -1,14 +1,17 @@
 package some.test.db.metamodels;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name = "Post")
 @Table(name = "post")
 public class Post {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String title;

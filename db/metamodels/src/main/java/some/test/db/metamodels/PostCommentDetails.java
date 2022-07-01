@@ -1,14 +1,16 @@
 package some.test.db.metamodels;
 
-import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 
 @Entity(name = "PostCommentDetails")
 @Table(name = "post_comment_details")
 public class PostCommentDetails {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @OneToOne
